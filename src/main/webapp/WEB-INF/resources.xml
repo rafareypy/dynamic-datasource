@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Router and datasource -->
+    <Resource id="My Router" class-name="org.superbiz.dynamicdatasourcerouting.DeterminedRouter">
+        DatasourceNames = database1 database2 database3
+        DefaultDataSourceName = database1
+    </Resource>
+
+    <Resource id="Routed Datasource" type="javax.sql.DataSource">
+        Router = My Router
+    </Resource>
+
+    <!-- real datasources -->
+    <Resource id="database1" type="DataSource">
+        JdbcDriver = org.hsqldb.jdbcDriver
+        JdbcUrl = jdbc:hsqldb:mem:db1
+        UserName = sa
+        Password
+        JtaManaged = true
+    </Resource>
+    <Resource id="database2" type="DataSource">
+        JdbcDriver = org.hsqldb.jdbcDriver
+        JdbcUrl = jdbc:hsqldb:mem:db2
+        UserName = sa
+        Password
+        JtaManaged = true
+    </Resource>
+    <Resource id="database3" type="DataSource">
+        JdbcDriver = org.hsqldb.jdbcDriver
+        JdbcUrl = jdbc:hsqldb:mem:db3
+        UserName = sa
+        Password
+        JtaManaged = true
+    </Resource>
+</resources>
